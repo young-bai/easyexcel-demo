@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.young.easyexcel.mapper.EasyExcelMapper">
+    <insert id="insertEasyExcel">
+        insert into easy_excel (`name`,age,address) values
+        <foreach collection="easyExcelModels" item="listItem" separator=",">
+            (#{listItem.name},#{listItem.age},#{listItem.address})
+        </foreach>
+    </insert>
+</mapper>

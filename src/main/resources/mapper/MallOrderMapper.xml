@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.young.easyexcel.mapper.MallOrderMapper">
+    <insert id="insertOrders">
+        insert into mall_order
+        (
+        `oid`,
+        `channelOid`,
+        `coopOId`,
+        `producttype`,
+        `ordersource`,
+        `mid`,
+        `proid`,
+        `specid`,
+        `status`,
+        `productprice`,
+        `orderprice`,
+        `couponid`,
+        `coupondenomination`,
+        `ctime`,
+        `utime`
+        )values
+        <foreach collection="orders" item="order" separator=",">
+            (
+            #{order.oid},
+            #{order.channelOid},
+            #{order.coopOId} ,
+            #{order.producttype},
+            #{order.ordersource},
+            #{order.mid},
+            #{order.proid},
+            #{order.specid},
+            #{order.status},
+            #{order.productprice},
+            #{order.orderprice} ,
+            #{order.couponid},
+            #{order.coupondenomination},
+            #{order.ctime},
+            #{order.utime}
+            )
+        </foreach>
+    </insert>
+</mapper>
